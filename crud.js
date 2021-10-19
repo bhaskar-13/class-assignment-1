@@ -64,19 +64,18 @@ async function toggleEdit(usersId){
    
 };
 
-async function edituser(userid1){
-    console.log("save the data");
-    const n3=document.querySelector(`.edit-${userid1}`).value;
-    const n4=document.querySelector(`.edit-${userid1}`).value;
+async function edituser(userId){
+    console.log("Adding Users");
+    const n1=document.querySelector(`.edit-${userId}-username`).value;
+    const n2=document.querySelector(`.edit-${userId}-useravatar`).value;
     const data= await fetch
-    ("https://616e3509a83a850017caa871.mockapi.io/users/",
-     {method:"POST",
-     headers:{ "Content-Type": "application/json"},
-     body:JSON.stringify({name:n3,avatar:n4})
-     }
-    );
-    getData();
-    
+       ("https://616e3509a83a850017caa871.mockapi.io/users/" +userId,
+        {method:"PUT",
+        headers:{ "Content-Type": "application/json"},
+        body:JSON.stringify({name:n1,avatar:n2})
+        }
+       );
+       getData();
  };
 
 
